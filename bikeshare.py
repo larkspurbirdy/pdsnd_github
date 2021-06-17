@@ -177,17 +177,17 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
-        #Display raw data by 5 lines at a time
-        raw_data = input('\nWould you like to view 5 lines of raw data? Enter yes or no.\n')
+        #Display raw data by 10 lines at a time
+        raw_data = input('\nWould you like to view 10 lines of raw data? Enter yes or no.\n')
         while raw_data not in YN:
             raw_data = input('Oops! That\'s not a valid entry. Enter yes or no.\n').lower()
         dstart = 0
-        dend = 5
+        dend = 10
         while raw_data.lower() != 'no':
             print(df.iloc[dstart:dend, :])
-            dstart += 5
-            dend += 5
-            raw_data = input('\nWould you like to view five more lines? Enter yes or no.\n')
+            dstart += 10
+            dend += 10
+            raw_data = input('\nWould you like to view 10 more lines? Enter yes or no.\n')
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
