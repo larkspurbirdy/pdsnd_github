@@ -36,7 +36,7 @@ def get_filters():
     while day not in DAYS:
         day = input('Oops! That\'s not a valid entry. Enter a day of the week, or type "all". --> ').lower()
 
-    print('-'*40)
+    print('~'*40)
     return city, month, day
 
 
@@ -86,7 +86,7 @@ def time_stats(df):
     print('The most common hour to travel is: {}:00'.format(common_hour))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('~'*40)
 
 
 def station_stats(df):
@@ -108,7 +108,7 @@ def station_stats(df):
     print("The most popular trip is: {}".format(common_route))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('~'*40)
 
 
 def trip_duration_stats(df):
@@ -138,7 +138,7 @@ def trip_duration_stats(df):
     print("The average trip duration is: {} minutes".format(int(duration_mean/60)))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('~'*40)
 
 
 def user_stats(df):
@@ -164,7 +164,7 @@ def user_stats(df):
         print('\nThe oldest user was born in {}, the youngest user was born in {}, and the most common year of birth is {}.'.format(earliest_birth, recent_birth, common_birth))
 
         print("\nThis took %s seconds." % (time.time() - start_time))
-        print('-'*40)
+        print('~'*40)
 
 
 def main():
