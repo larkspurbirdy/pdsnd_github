@@ -22,16 +22,16 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('                                               $"   *.\n                   d$$$$$$$P                   $    J\n                       ^$.                     4r  "\n                       d"b                    .db\n                      P   $                  e" $\n             ..ec.. ."     *.              zP   $.zec..\n         .^        3*b.     *.           .P" .@"4F      "4\n       ."         d"  ^b.    *c        .$"  d"   $         %\n      /          P      $.    "c      d"   @     3r         3\n     4        .eE........$r===e$$$$eeP    J       *..        b\n     $       $$$$$       $   4$$$$$$$     F       d$$$.      4\n     $       $$$$$       $   4$$$$$$$     L       *$$$"      4\n     4         "      ""3P ===$$$$$$"     3                  P\n      *                 $       """        b                J\n       ".             .P                    %.             @\n         %.         z*"                      ^%.        .r"\n            "*==*""                             ^"*==*""   Gilo94\'\n    \nHello! Let\'s explore some US bikeshare data!\n')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # Get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = input('Enter one of these cities: Chicago, New York City, or Washington --> ').lower()
     while city not in CITIES:
         city = input('Oops! That\'s not a valid entry. Enter Chicago, New York City, or Washington --> ').lower()
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+    # Get user input for month (all, january, february, ... , june)
     month = input('Now enter a month between January and June, or type "all" to see data for all months. --> ').lower()
     while month not in MONTHS:
         month = input('Oops! That\'s not a valid entry. Enter a month between January and June, or type "all". --> ').lower()
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # Get user input for day of week (all, monday, tuesday, ... sunday)
     day = input('Finally, enter a day of the week, or type "all" to see data for all days. --> ').lower()
     while day not in DAYS:
         day = input('Oops! That\'s not a valid entry. Enter a day of the week, or type "all". --> ').lower()
@@ -72,16 +72,16 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
+    # Display the most common month
     common_month = df['Month'].mode()[0]
     common_month = MONTHS[common_month - 1].title()
     print('The most common month of travel is: {}'.format(common_month))
 
-    # TO DO: display the most common day of week
+    # Display the most common day of week
     common_day_of_week = df['Day_Of_Week'].mode()[0]
     print('The most common day of the week to travel is: {}'.format(common_day_of_week))
 
-    # TO DO: display the most common start hour
+    # Display the most common start hour
     common_hour = df['Hour'].mode()[0]
     print('The most common hour to travel is: {}:00'.format(common_hour))
 
@@ -95,15 +95,15 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
+    # Display most commonly used start station
     common_start = df['Start Station'].mode()[0]
     print("The most popular starting station is: {}".format(common_start))
 
-    # TO DO: display most commonly used end station
+    # Display most commonly used end station
     common_end = df['End Station'].mode()[0]
     print("The most popular end station is: {}".format(common_end))
 
-    # TO DO: display most frequent combination of start station and end station trip
+    # Display most frequent combination of start station and end station trip
     common_route = df['Route'].mode()[0]
     print("The most popular trip is: {}".format(common_route))
 
@@ -117,7 +117,7 @@ def trip_duration_stats(df):
     print('Calculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
+    # Display total travel time
     duration_sum = df['Trip Duration'].sum()
     def sec_conversion(seconds):
         """Converts seconds to year, day, hour, and minute"""
@@ -133,7 +133,7 @@ def trip_duration_stats(df):
 
     print("The total duration of all trips is: {}".format(sec_conversion(duration_sum)))
 
-    # TO DO: display mean travel time
+    # Display mean travel time
     duration_mean = df['Trip Duration'].mean()
     print("The average trip duration is: {} minutes".format(int(duration_mean/60)))
 
@@ -149,15 +149,15 @@ def user_stats(df):
         print('\nCalculating User Stats...\n')
         start_time = time.time()
 
-        # TO DO: Display counts of user types
+        # Display counts of user types
         user_type_count = df['User Type'].value_counts().to_string()
         print('The total count of each user type are: \n{}'.format(user_type_count))
 
-        # TO DO: Display counts of gender
+        # Display counts of gender
         gender_count = df['Gender'].value_counts().to_string()
         print('\nThe total count of each gender are: \n{}'.format(gender_count))
 
-        # TO DO: Display earliest, most recent, and most common year of birth
+        # Display earliest, most recent, and most common year of birth
         earliest_birth = int(df['Birth Year'].min())
         recent_birth = int(df['Birth Year'].max())
         common_birth = int(df['Birth Year'].mode()[0])
@@ -177,7 +177,7 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
-        #Display raw data by 5 lines at a time
+        # Display raw data by 5 lines at a time
         raw_data = input('\nWould you like to view 5 lines of raw data? Enter yes or no.\n')
         while raw_data not in YN:
             raw_data = input('Oops! That\'s not a valid entry. Enter yes or no.\n').lower()
