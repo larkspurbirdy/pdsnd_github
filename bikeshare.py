@@ -36,7 +36,7 @@ def get_filters():
     while day not in DAYS:
         day = input('Oops! That\'s not a valid entry. Enter a day of the week, or type "all". --> ').lower()
 
-    print('-'*40)
+    print('~'*40)
     return city, month, day
 
 
@@ -86,7 +86,7 @@ def time_stats(df):
     print('The most common hour to travel is: {}:00'.format(common_hour))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('~'*40)
 
 
 def station_stats(df):
@@ -108,7 +108,7 @@ def station_stats(df):
     print("The most popular trip is: {}".format(common_route))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('~'*40)
 
 
 def trip_duration_stats(df):
@@ -138,7 +138,7 @@ def trip_duration_stats(df):
     print("The average trip duration is: {} minutes".format(int(duration_mean/60)))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    print('~'*40)
 
 
 def user_stats(df):
@@ -164,7 +164,7 @@ def user_stats(df):
         print('\nThe oldest user was born in {}, the youngest user was born in {}, and the most common year of birth is {}.'.format(earliest_birth, recent_birth, common_birth))
 
         print("\nThis took %s seconds." % (time.time() - start_time))
-        print('-'*40)
+        print('~'*40)
 
 
 def main():
@@ -177,20 +177,21 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
-        # Display raw data by 5 lines at a time
-        raw_data = input('\nWould you like to view 5 lines of raw data? Enter yes or no.\n')
+        #Display raw data by 10 lines at a time
+        raw_data = input('\nWould you like to view 10 lines of raw data? Enter yes or no.\n')
         while raw_data not in YN:
             raw_data = input('Oops! That\'s not a valid entry. Enter yes or no.\n').lower()
         dstart = 0
-        dend = 5
+        dend = 10
         while raw_data.lower() != 'no':
             print(df.iloc[dstart:dend, :])
-            dstart += 5
-            dend += 5
-            raw_data = input('\nWould you like to view five more lines? Enter yes or no.\n')
+            dstart += 10
+            dend += 10
+            raw_data = input('\nWould you like to view 10 more lines? Enter yes or no.\n')
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
+            print("Have a nice day!")
             break
 
 
